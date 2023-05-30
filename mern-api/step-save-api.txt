@@ -1,0 +1,18 @@
+1) Kita buat terlebih dahulu schema/model/cetakan seperti class sebagai cetakan default yang nanti akan kita gunakan sebagai cetakan data dari req body yang kita terima agar nanti data yang kita masukkan ke database itu lebih teratur (Lihat contohnya di folder models)
+
+2) Setelah melihat contoh di folder models Berikut ada penjelasan singkat terkait aturan schema yang dibuat oleh mongo
+*) Pada cetakan/schema yang sudah dibuat mongo nanti kau gak perlu membuat id untuk datanya nanti karena secara default sudah disiapkan oleh mongo itu sendiri
+*) Lalu pada schema juga bisa kita lihat ada syntax ("required : true"), ini artinya untuk jenis data (cth : title or body ect) diwajibkan apa ngga. Kalau diwajibkan maka isikan true dan sebaliknya
+*) Lalu pada schema juga bisa kita lihat ada syntax ("timestamps: true"), ini artinya kita bisa menambahkan waktu pembuatan/input data dan waktu update data(ketika memang anda meng update datanya) kedalam data yang nanti kita masukkan kedalam database. Kalau ingin menambahkannya maka tinggal tuliskan ("timestamps: true") 
+
+3) Kita masukkanlah data-data user yang kita terima dari req.body itu mengikuti cetakan yang telah kita buat diawal dengan memanggil class/schema/cetakannya itu yang harus kita require terlebih dahulu dan juga untuk class/schema/cetakannya juga jangan lupa di import juga(cetakan yang di folder models) 
+contoh: (
+    const Posting = new BlogPost({
+        title : req.body.title,
+        body : req.body.body,
+        author : {uid : 1, name : "adrianus silalahi"} -- // untuk contoh author yang ini adalah sebuah dummy terlebih dahulu karena nanti isi author yang sebenarnya adalah berasal dari data user yang kita ambil dari data yang dimasukkan user saat register
+    })
+)
+4) Setelah data dimasukkan lalu jangan lupa di save ke database dengan syntax "Posting.save()"
+5) Setelah itu agar kita tahu apakah proses save datanya berhasil jangan lupa membuat pengecekan dengan syntax "Posting.save().then().catch()" sperti yang kita tahu then()artinya apabila proses nya berhasil apa yang dilakukan dan begitu juga dengan proses gagal/catch. Untuk contoh nya bisa dilihat di bagian folder Controller yang bagian blog 
+    

@@ -1,0 +1,25 @@
+.main-page{
+    display: flex;
+    height: 100vh;
+    box-sizing: border-box;
+    .left{
+        width: 73%;
+        background-color: red;
+        .RegisterBg{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+    .right{
+        width: 27%;
+        box-sizing: border-box;
+        background-color: white;
+        padding: 30px;
+        .title{
+            font-size: 20px;
+            font-weight: bold;
+            color: #2d2d2d;
+        }
+    }
+}
