@@ -45,6 +45,7 @@ exports.getBlogPost = (req, res, next) => {
     .then((count) => {
       totalData = count;
       return BlogPost.find() //di return supaya mengembalikan promise baru agar .then dapat kita gunakan
+        .sort({ _id: -1 })
         .skip((currentPage - 1) * perPage)
         .limit(perPage);
     })

@@ -32,7 +32,7 @@ export default function BlogItem(props) {
                 onClick={() =>
                   Swal.fire({
                     title: "Kamu ingin menghapus berita ini?",
-                    showDenyButton: true,
+                    showDenyButton: false,
                     showCancelButton: true,
                     confirmButtonText: "Hapus",
                     denyButtonText: `Jangan Hapus`,
@@ -47,8 +47,6 @@ export default function BlogItem(props) {
                         timer: 1500,
                       });
                       deleteBlog(id);
-                    } else if (result.isDenied) {
-                      Swal.fire("Changes are not saved", "", "info");
                     }
                   })
                 }

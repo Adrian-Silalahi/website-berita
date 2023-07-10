@@ -5,7 +5,6 @@ import "./home.scss";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setDataBlog } from "../../config/redux/action";
-// import { judeBellingham, LoginBg } from "../../assets";
 import { BsArrowRightShort } from "react-icons/bs";
 
 const Home = () => {
